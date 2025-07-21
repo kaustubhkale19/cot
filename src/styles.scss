@@ -1,0 +1,53 @@
+$primary_color: #ffd700;
+$secondary_color: #ffa500;
+$title_color: #feab4f;
+
+body {
+    background-image: url('assets/bg2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    margin: 0;
+    height: 100%;
+    display: block;
+}
+
+.home {
+    background-image: url('assets/bg1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    margin: 0;
+    height: 100%;
+    display: block;
+}
+
+.page-title {
+    height: 20vh;
+    display: flex;
+    align-items: center;
+}
+
+.page-title span {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-weight: bold;
+    font-size: 5rem;
+    color: $title_color;
+    letter-spacing: 2px;
+    text-align: center;
+    width: 100%;
+    display: block;
+}
+
+/* Keyframes for rotating animation */
+@keyframes spin {
+    0% {
+        transform: rotateY(0deg);
+    }
+
+    100% {
+        transform: rotateY(360deg);
+    }
+}

@@ -1,0 +1,10 @@
+<div class="page-title" style="height: 30vh;">
+    <span>Let's Play!</span>
+</div>
+<div style="height: 70vh; display: flex;">
+    @for (game of games; track $index) {
+        <div class="game-cards">
+            {{ game.name }}
+        </div>
+    }
+</div>

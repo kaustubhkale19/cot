@@ -1,0 +1,52 @@
+@use '../styles.scss' as *;
+
+.title {
+    height: 20vh;
+    display: flex;
+    align-items: center;
+}
+
+.title span {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 5rem;
+    background: linear-gradient(to bottom, $primary_color, $secondary_color);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 2px;
+    text-align: center;
+    width: 100%;
+    display: block;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+}
+
+.logo img {
+    max-width: 100%;
+    height: auto;
+    // animation: spin 2s linear infinite;
+    // transform-style: preserve-3d;
+}
+
+.play-btn {
+    text-align: center;
+    height: 20vh;
+}
+
+.play-btn button {
+    text-align: center;
+    background: none;
+    border: 1px solid $primary_color;
+    color: $primary_color;
+    font-size: 30px;
+    padding: 1% 2%;
+    border-radius: 10px;
+    cursor: pointer;
+}

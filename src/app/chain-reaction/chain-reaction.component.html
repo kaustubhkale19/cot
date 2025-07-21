@@ -1,0 +1,108 @@
+<!-- Game Header -->
+<div class="cr-header">
+  <div class="cr-title">CHAIN REACTION: <span>{{ teamName }}</span></div>
+  <div class="cr-score">
+    <span>Points: <b>{{ points }}</b></span>&nbsp;|&nbsp;
+    <span>Lives:
+      @for (life of livesArray; track life) {
+        <span class="life" [class.lost]="!life">♥️</span>
+      }
+    </span>
+    &nbsp;|&nbsp;<span>Time Left: <b>{{ timeLeft | number:'2.0' }}</b>s</span>
+  </div>
+</div>
+
+<!-- Chain Reaction Words -->
+<div class="cr-chain-container">
+  <div class="cr-chain-title">Chain Reaction</div>
+  <ol class="cr-chain-list">
+    @for (word of displayWords; track $index) {
+      <li [class.disclosed]="word.disclosed"
+          [class.current]="$index === currentWordIndex"
+          [class.hint]="word.showHint && !word.disclosed">
+        <span class="cr-word">
+          @if (word.disclosed) {
+            {{ word.word }}
+          } @else if (word.showHint && !word.disclosed) {
+            <b>{{ word.word.charAt(0) }}</b>
+            @for (l of word.underscores; track l) {
+              {{ l }}
+            }
+          } @else {
+            @for (u of word.underscores; track u) {
+              {{ u }}
+            }
+          }
+        </span>
+      </li>
+    }
+  </ol>
+</div>
+
+<!-- Input & Actions (only if game is active and not finished) -->
+@if (!gameOver) {
+  <div class="cr-input-container">
+    <form (ngSubmit)="submitGuess()" autocomplete="off">
+      <label for="guessInput">Guess the next word:</label>
+      <input
+        type="text"
+        id="guessInput"
+        [(ngModel)]="guess"
+        name="guess"
+        required
+        autocomplete="off"
+        autofocus
+        [disabled]="inputDisabled"
+      />
+      <button type="submit" [disabled]="inputDisabled || !guess.trim()">Submit</button>
+    </form>
+    @if (guessFeedback) {
+      <div class="cr-hint">
+        <span [ngClass]="{'correct': guessFeedback==='correct', 'incorrect': guessFeedback==='incorrect'}">
+          {{ guessFeedback==='correct' ? 'Correct!' : 'Try again!'}}
+          @if (showLetterHint) {
+            Hint: Next word starts with <b>{{ nextWordFirstLetter }}</b>
+          }
+        </span>
+      </div>
+    }
+  </div>
+}
+
+<!-- Game Over/Result -->
+@if (gameOver) {
+  <div class="cr-gameover-container">
+    <h2>GAME OVER!</h2>
+    <p>
+      Team Points: <b>{{ points }}</b> <br>
+      Words Guessed: <b>{{ guessedCount }} of 10</b>
+    </p>
+    <div class="cr-final-chain">
+      <h4>The completed chain:</h4>
+      <ol>
+        @for (word of chainWords; track word) {
+          <li [class.disclosed]="word.disclosed">{{ word.word }}</li>
+        }
+      </ol>
+    </div>
+    <button (click)="restartGame()">Play Again</button>
+    <button (click)="goHome()">Home</button>
+  </div>
+}
+
+<!-- Optional: How-to-play Modal -->
+@if (showHowToPlay) {
+  <div class="cr-modal">
+    <div class="cr-modal-content">
+      <h3>How To Play</h3>
+      <ul>
+        <li>Guess the next word in the chain reaction.</li>
+        <li>3 lives per team. Lose a life on a wrong guess.</li>
+        <li>5 points per correct answer, -5 points per wrong.</li>
+        <li>First word shown. Get a hint (first letter) if wrong.</li>
+        <li>Finish the chain of 10 words, or until out of lives or time!</li>
+      </ul>
+      <button (click)="showHowToPlay = false">Got it!</button>
+    </div>
+  </div>
+}

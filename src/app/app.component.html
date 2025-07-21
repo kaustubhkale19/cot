@@ -1,0 +1,16 @@
+@if (!showGames) {
+<div class="home">
+    <div class="title">
+        <span>Clash Of Titans</span>
+    </div>
+    <div class="logo">
+        <img src="assets/archlogo.png" alt="GLORIA ARCH">
+    </div>
+    <div class="play-btn" (click)="play()">
+        <button>Let's Play!</button>
+    </div>
+</div>
+}
+@else {
+    <router-outlet></router-outlet>
+}

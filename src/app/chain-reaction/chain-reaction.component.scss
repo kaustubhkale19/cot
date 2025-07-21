@@ -1,0 +1,61 @@
+.cr-header {
+    padding: 1em;
+    background: #182030;
+    color: #fff;
+}
+
+.cr-score {
+    font-size: 1.1em;
+    margin-top: 0.5em;
+}
+
+.life {
+    color: #e74c3c;
+    font-size: 1.5em;
+}
+
+.life.lost {
+    color: #ccc;
+}
+
+.cr-chain-list {
+    font-size: 1.5em;
+    line-height: 2em;
+}
+
+.cr-chain-list .disclosed {
+    color: #27ae60;
+    font-weight: bold;
+}
+
+.cr-chain-list .hint b {
+    color: #e67e22;
+}
+
+.cr-input-container {
+    margin-top: 2em;
+}
+
+.cr-gameover-container {
+    background: #fffbe6;
+    padding: 2em;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.cr-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.cr-modal-content {
+    background: #fff;
+    margin: 5vh auto;
+    max-width: 400px;
+    padding: 2em;
+    border-radius: 13px;
+}
