@@ -1,15 +1,18 @@
 [
     {
+        "gameId": "1",
         "name": "Chain Reaction",
         "description": "Chain Reaction",
         "rules": ""
     },
     {
+        "gameId": "2",
         "name": "Guess It!",
         "description": "Guess It!",
         "rules": ""
     },
     {
+        "gameId": "3",
         "name": "Top 10",
         "description": "Top 10",
         "rules": ""

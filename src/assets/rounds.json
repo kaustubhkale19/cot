@@ -1,0 +1,32 @@
+[
+    {
+        "gameId": "1",
+        "roundNumber": "1",
+        "name": "Round 1"
+    },
+    {
+        "gameId": "1",
+        "roundNumber": "2",
+        "name": "Round 2"
+    },
+    {
+        "gameId": "2",
+        "roundNumber": "1",
+        "name": "Round 1"
+    },
+    {
+        "gameId": "2",
+        "roundNumber": "2",
+        "name": "Round 2"
+    },
+    {
+        "gameId": "3",
+        "roundNumber": "1",
+        "name": "Round 1"
+    },
+    {
+        "gameId": "3",
+        "roundNumber": "2",
+        "name": "Round 2"
+    }
+]

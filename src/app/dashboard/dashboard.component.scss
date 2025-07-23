@@ -1,3 +1,109 @@
+@use '../../styles.scss' as *;
+
 .game-cards {
     color: white;
+}
+
+.points-table-container {
+    border-radius: 18px;
+    box-shadow: 0 5px 32px rgba(32, 38, 58, 0.25);
+    padding: 2% 5%;
+    width: 100%;
+}
+
+.points-title {
+    text-align: center;
+    font-family: 'Luckiest Guy', 'Arial Black', sans-serif;
+    font-size: 2.4rem;
+    color: $primary_color;
+    text-shadow: 2px 2px 8px #1c1c1c;
+    margin-bottom: 20px;
+    letter-spacing: 1.5px;
+    background: linear-gradient(90deg, $primary_color, $secondary_color 90%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.points-table {
+    width: 100%;
+    border-collapse: separate;
+    // border-spacing: 0 10px;
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+    background: transparent;
+}
+
+.points-table th,
+.points-table td {
+    text-align: center;
+    padding: 13px 0;
+}
+
+.points-table th {
+    background: #334063cf;
+    color: $title_color;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    // border-radius: 12px 12px 0 0;
+    letter-spacing: 1.2px;
+}
+
+.points-table td {
+    color: #fff;
+    font-size: 1.16rem;
+    background: #232f47a1;
+    border-bottom: 2px solid #232f47a1;
+    transition: background 0.2s;
+    font-weight: bolder;
+}
+
+.points-table tbody tr:hover td {
+    background: #27365b;
+}
+
+.team-name {
+    text-align: left;
+    padding-left: 15px;
+}
+
+.team-badge {
+    display: inline-block;
+    min-width: 90px;
+    font-weight: bold;
+    color: #252525;
+    background: $primary_color;
+    padding: 6px 16px;
+    border-radius: 29px;
+    box-shadow: 0 2px 12px #251b0b36;
+    letter-spacing: 1px;
+    font-size: 1.06rem;
+}
+
+.pts {
+    font-weight: 700;
+    color: $primary_color;
+    font-size: 1.27rem;
+}
+
+@media (max-width: 700px) {
+    .points-table-container {
+        padding: 11px;
+        max-width: 98vw;
+    }
+
+    .points-title {
+        font-size: 1.5rem;
+    }
+
+    .points-table th,
+    .points-table td {
+        padding: 8px 0;
+        font-size: 1rem;
+    }
+
+    .team-badge {
+        min-width: 70px;
+        font-size: 0.96rem;
+        padding: 4px 7px;
+    }
 }

@@ -1,10 +1,58 @@
-<div class="page-title" style="height: 30vh;">
-    <span>Let's Play!</span>
+<div class="page-title">
+    <span style="font-size: 4rem;">Team Leaderboard</span>
 </div>
 <div style="height: 70vh; display: flex;">
-    @for (game of games; track $index) {
-        <div class="game-cards">
-            {{ game.name }}
-        </div>
-    }
+    <div class="points-table-container">
+        <table class="points-table">
+            <thead>
+                <tr>
+                    <th rowspan="2">Pos</th>
+                    <th rowspan="2">Team</th>
+                    @for (game of games; track $index) {
+                    <th colspan="2">{{ game.name }}</th>
+                    }
+                    <th rowspan="2">Points</th>
+                </tr>
+                <tr>
+                    @for (game of games; track $index) {
+                    @for (round of rounds; track $index) {
+                    @if (round.gameId === game.gameId) {
+                    <th style="font-size: 1.2rem;">{{ round.name }}</th>
+                    }
+                    }
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                @for (team of teams; track $index) {
+                <tr>
+                    <td>{{ team.position }}</td>
+                    <td class="team-name">
+                        <span class="team-badge" [style.background]="team.color">{{ team.name }}</span>
+                    </td>
+                    @for (round of rounds; track $index) {
+                    @if(points.length !== 0) {
+                    @for (p of points; track $index) {
+                    @if (round.roundId === p.roundId && p.points !== 0) {
+                    <td>{{ p.points }}</td>
+                    }
+                    @else {
+                    <td style="cursor: pointer;" (click)="playGame(team.teamId, p.roundId)">
+                        <i class="fas fa-play"></i>
+                    </td>
+                    }
+                    }
+                    }
+                    @else {
+                    <td style="cursor: pointer;" (click)="playGame(team.teamId, round.roundId)">
+                        <i class="fas fa-play"></i>
+                    </td>
+                    }
+                    }
+                    <td>{{ team.totalPoints }}</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </div>

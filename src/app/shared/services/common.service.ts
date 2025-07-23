@@ -1,12 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-
-export interface Game {
-  name: string;
-  description: string;
-  rules: string;
-}
+import { Game, Team } from '../types';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +12,11 @@ export class CommonService {
     private http: HttpClient
   ) { }
 
-  getGames() {
+  getGames(): Observable<Game[]> {
     return this.http.get<Game[]>('./assets/games.json');
+  }
+
+  getTeams() {
+    return this.http.get<Team[]>('./assets/teams.json');
   }
 }

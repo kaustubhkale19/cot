@@ -10,7 +10,7 @@ import { Router, RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'Clash Of Titans';
-  showGames = false;
+  showGames = true;
 
   constructor(
     public router: Router
